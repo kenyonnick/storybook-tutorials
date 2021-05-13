@@ -26,8 +26,8 @@ jobs:
     - name: npm install, build, and test
       run: |
         npm install
-        npm run storybook-build --if-present
         npm run test --if-present
+        npm run storybook-build --if-present
       working-directory: ./intro-to-storybook/taskbox
 
     - name: Run Azure webapp deploy action using publish profile credentials
