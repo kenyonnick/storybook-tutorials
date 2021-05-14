@@ -13,6 +13,14 @@
                 "anonymous",
                 "authenticated"
             ]
+        },
+        {
+            "route": "/logout",
+            "redirect": "/.auth/logout",
+            "allowedRoles": [
+                "anonymous",
+                "authenticated"
+            ]
         }
     ],
     "navigationFallback": {
@@ -22,12 +30,6 @@
             "/logout",
             "/.auth/*"
         ]
-    },
-    "responseOverrides": {
-        "401": {
-            "redirect": "/login",
-            "statusCode": 302
-        }
     },
     "globalHeaders": {
         "content-security-policy": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'"
