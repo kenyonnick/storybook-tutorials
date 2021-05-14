@@ -1,8 +1,7 @@
 {
     "routes": [
         {
-            "route": "/app",
-            "rewrite": "index.html",
+            "route": "/index.html",
             "allowedRoles": [
                 "authenticated"
             ]
@@ -16,6 +15,14 @@
             ]
         }
     ],
+    "navigationFallback": {
+        "rewrite": "/index.html",
+        "exclude": [
+            "/login",
+            "/logout",
+            "/.auth/*"
+        ]
+    },
     "responseOverrides": {
         "401": {
             "redirect": "/login",
