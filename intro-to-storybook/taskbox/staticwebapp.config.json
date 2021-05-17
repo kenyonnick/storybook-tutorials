@@ -1,14 +1,44 @@
 {
     "routes": [
-      {
-        "route": "*",
-        "allowedRoles": ["authenticated"]
-      }
+        {
+            "route": "/*.html",
+            "allowedRoles": [
+                "authenticated"
+            ]
+        },
+        {
+            "route": "/?path*",
+            "allowedRoles": [
+                "authenticated"
+            ]
+        },
+        {
+            "route": "/login",
+            "redirect": "/.auth/login/aad",
+            "allowedRoles": [
+                "anonymous"
+            ]
+        },
+        {
+            "route": "/logout",
+            "redirect": "/.auth/logout",
+            "allowedRoles": [
+                "authenticated"
+            ]
+        }
     ],
+    "navigationFallback": {
+        "rewrite": "/index.html",
+        "exclude": [
+            "/login",
+            "/logout",
+            "/.auth/*"
+        ]
+    },
     "globalHeaders": {
-      "content-security-policy": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'"
+        "content-security-policy": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'"
     },
     "mimeTypes": {
-      ".json": "text/json"
+        ".json": "text/json"
     }
-  }
+}
