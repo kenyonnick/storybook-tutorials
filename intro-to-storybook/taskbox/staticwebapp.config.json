@@ -7,7 +7,7 @@
             ]
         },
         {
-            "route": "/storybook-static/*",
+            "route": "/?path*",
             "allowedRoles": [
                 "authenticated"
             ]
@@ -27,6 +27,14 @@
             ]
         }
     ],
+    "navigationFallback": {
+        "rewrite": "/index.html",
+        "exclude": [
+            "/login",
+            "/logout",
+            "/.auth/*"
+        ]
+    },
     "globalHeaders": {
         "content-security-policy": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'"
     },
