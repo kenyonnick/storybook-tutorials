@@ -10,15 +10,13 @@
             "route": "/login",
             "redirect": "/.auth/login/aad",
             "allowedRoles": [
-                "anonymous",
-                "authenticated"
+                "anonymous"
             ]
         },
         {
             "route": "/logout",
             "redirect": "/.auth/logout",
             "allowedRoles": [
-                "anonymous",
                 "authenticated"
             ]
         }
